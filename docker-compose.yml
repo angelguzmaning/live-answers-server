@@ -5,8 +5,6 @@ services:
     build:
       context: .
       dockerfile: DOCKERFILE
-    volumes:
-      - ./:/usr/src/app
     ports:
       - "7501:7501"
     links:
