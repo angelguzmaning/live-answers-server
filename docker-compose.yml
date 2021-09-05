@@ -1,23 +1,23 @@
 version: "3"
 services:
-       server:
-           restart: always
-           build:
-             context: .
-             dockerfile: DOCKERFILE
-           volumes:
-             - ./:/usr/src/app
-           ports:
-             - "7501:7501"
-           links:
-             - mongo
-       mongo:
-             container_name: live-answers-mongo
-             image: mongo
-             volumes:
-               - ./data:/data/db
-               - ./InitDBScripts:/docker-entrypoint-initdb.d/
-             ports:
-               - '27019:27017'
-             environment: 
-               - MONGO_INITDB_DATABASE=live_answers
+  server:
+    restart: always
+    build:
+      context: .
+      dockerfile: DOCKERFILE
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "7501:7501"
+    links:
+      - mongo
+  mongo:
+    container_name: live-answers-mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+      - ./InitDBScripts:/docker-entrypoint-initdb.d/
+    ports:
+      - "27019:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=live_answers

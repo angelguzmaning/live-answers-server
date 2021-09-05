@@ -1,0 +1,11 @@
+version: "3"
+services:
+  server:
+    restart: always
+    build:
+      context: .
+      dockerfile: DOCKERFILE
+    ports:
+      - "7501:7501"
+    links:
+      - mongo
